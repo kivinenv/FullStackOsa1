@@ -1,0 +1,29 @@
+kayttaja->selain:kayttaja kirjottaa tekstikentt‰‰n teksti‰
+
+kayttaja->selain:kayttaja painaa "Talleta" -painiketta
+selain->palvelin: POST fullstack-exampleapp.herokuapp.com/new_note
+note left of palvelin
+  L‰hetet‰‰n tekstikentt‰‰n kirjoitettu teksti muistiinpanoihin
+end note
+palvelin->selain: status 302, uudelleenohjauspyyntˆ fullstack-exampleapp.herokuapp.com/notes
+selain->palvelin: GET fullstack-exampleapp.herokuapp.com/notes
+note left of palvelin
+  muodostetaan HTML miss‰ olemassaolevien
+  muistiinpanojen lukum‰‰r‰ p‰ivitettyn‰
+end note
+
+palvelin->selain: status 200, sivun HTML-koodi
+
+selain->palvelin: GET fullstack-exampleapp.herokuapp.com/main.css
+palvelin->selain: status 200, tyylitiedosto
+
+selain->palvelin: GET fullstack-exampleapp.herokuapp.com/main.js
+palvelin->selain: status 200, javascript-tiedosto
+
+selain->palvelin: GET fullstack-exampleapp.herokuapp.com/data.json
+palvelin->selain: status 200, muistiinpanojen raakadata
+
+note left of selain
+ selain l‰hett‰‰ tekstikentt‰‰n kirjoitetun tekstin muistiinpanoihin 
+ ja lataa sivun uudelleen p‰ivitetyill‰ muistiinpanoilla
+end note
