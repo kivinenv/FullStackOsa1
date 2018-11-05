@@ -1,0 +1,12 @@
+kayttaja->selain:
+note left of selain
+kayttaja kirjottaa tekstikenttään tekstiä ja 
+painaa talleta -näppäintä
+end note
+selain->palvelin: POST fullstack-exampleapp.herokuapp.com/new_note_spa
+palvelin->selain: status 201, syötetty teksti lisätty muistiinpanoihin
+
+note left of selain
+ selain lähettää syötetyn tekstin muistiinpanoihin 
+ ja päivittää sen näkyviin sivulle
+end note
